@@ -2,14 +2,14 @@ pipeline {
     agent {
         docker {
             image 'golang:latest'
-            args '-v $PWD:/var/agent/workspaces'
+            args '-v /var/agent/workspaces:/var/agent/workspaces'
         }
     }
     
     stages {
         stage('Test') {
             steps {
-                ws ('/var/agent/workspaces/') {
+                ws ('/var/agent/workspaces') {
                     sh 'go version'
                 }
             }
