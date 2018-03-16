@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                ws ('/var/agent/workspaces') {
+                ws ('/var/agent/workspaces/') {
                     sh 'go version'
                 }
             }
