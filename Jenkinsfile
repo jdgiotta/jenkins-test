@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'golang:latest'
-            args '-v $WORKSPACE:/var/agent/workspaces'
+            args '-v $PWD:/var/agent/workspaces'
         }
     }
     
