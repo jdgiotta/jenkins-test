@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'go version'
+                ws ('/var/agent/workspaces') {
+                    sh 'go version'
+                }
             }
         }
         stage('Deploy') {
