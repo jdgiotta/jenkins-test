@@ -4,12 +4,10 @@ pipeline {
     }
     
     stages {
-        ws("/var/agent/workspaces/trackingservice"){
-            stage('Test') {
-                steps {
-                        sh 'go test ./...'
-                    }
-                }
+        stage('Test') {
+            steps {
+                sh 'go version'
+            }
         }
         stage('Deploy') {
             steps {
