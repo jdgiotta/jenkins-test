@@ -1,14 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'golang:latest'
-        }
-    }
+    agent none
     
     stages {
         stage('Test') {
+            agent {
+                docker {
+                    image 'golang:latest'
+                }
+            }
             steps {
-                    sh 'go version'
+                    sh 'go test ./...'
             }
         }
         stage('Deploy') {
