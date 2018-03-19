@@ -12,7 +12,7 @@ node {
     }
 
     stage("Push") {
-        docker.withRegistry('https://docker.io', 'my-hub-creds') {
+        docker.withRegistry('https://registry.hub.docker.com', '6e7489e7-4ee3-426e-98da-eb4f2153a113') {
             docker.image('jdgiotta/mytest').push("${env.BUILD_NUMBER}")
             docker.image('jdgiotta/mytest').push('latest')
         }
