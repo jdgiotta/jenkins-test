@@ -3,7 +3,7 @@ node {
     
 
     stage('Test') {
-        docker.image('golang:latest') {
+        docker.image('golang:latest').inside() {
             sh 'go test ./...'
         }
     }
