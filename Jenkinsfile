@@ -12,8 +12,10 @@ pipeline {
                     sh 'go test ./...'
             }
         }
-        stage('Deploy') {
-            docker.build("my-example")
+        stage('Build') {
+            steps {
+                docker.build("my-example")
+            }
         }
     }
 }
