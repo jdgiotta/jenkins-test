@@ -1,21 +1,14 @@
-pipeline {
-    agent none
+node {
+    checkout scm
     
-    stages {
-        stage('Test') {
-            agent {
-                docker {
-                    image 'golang:latest'
-                }
-            }
-            steps {
-                    sh 'go test ./...'
-            }
-        }
-        stage('Build') {
-            steps {
-                docker.build("my-example")
-            }
+
+    stage('Test') {
+        docker.image('golang:latest') {
+            sh 'go test ./...'
         }
     }
+    stage('Build') {
+        docker.build("my-example")
+    }
+
 }
