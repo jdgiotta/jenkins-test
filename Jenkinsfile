@@ -13,9 +13,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                echo 'Deploying... I hope...'
-            }
+            docker.build("my-example")
         }
     }
 }
