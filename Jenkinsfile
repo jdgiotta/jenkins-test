@@ -8,7 +8,14 @@ node {
         }
     }
     stage('Build') {
-        docker.build("my-example")
+        docker.build("mytest")
+    }
+
+    stage("Push") {
+        docker.withRegistry('https://hub.docker.com', 'my-hub-creds') {
+            docker.image('mytest').push("${env.BUILD_NUMBER}")
+            docker.image('mytest').push('latest')
+        }
     }
 
 }
