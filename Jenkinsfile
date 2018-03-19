@@ -8,13 +8,13 @@ node {
         }
     }
     stage('Build') {
-        docker.build("mytest")
+        docker.build("jdgiotta/mytest")
     }
 
     stage("Push") {
         docker.withRegistry('https://hub.docker.com', 'my-hub-creds') {
-            docker.image('mytest').push("${env.BUILD_NUMBER}")
-            docker.image('mytest').push('latest')
+            docker.image('jdgiotta/mytest').push("${env.BUILD_NUMBER}")
+            docker.image('jdgiotta/mytest').push('latest')
         }
     }
 
