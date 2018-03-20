@@ -5,7 +5,7 @@ node {
 
     stage('Test') {
         docker.image('golang:latest').inside("-v ${pwd()}:${goPath}") {
-            sh 'pwd && ls -l'
+            sh 'pwd && ls -l /go/src/'
         }
     }
     stage('Build') {
