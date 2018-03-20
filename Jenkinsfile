@@ -5,7 +5,7 @@ node {
 
     stage('Test') {
         docker.image('golang:latest').inside() {
-            sh "ls -l"
+            sh "ls -l && pwd"
 
         }
     }
