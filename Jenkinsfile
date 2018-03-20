@@ -13,7 +13,7 @@ node {
         }
     }
     stage('Build') {
-        var img = docker.build("jdgiotta/mytest")
+        def img = docker.build("jdgiotta/mytest")
     }
 
     stage("Push") {
