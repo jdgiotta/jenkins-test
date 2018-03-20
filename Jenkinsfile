@@ -1,8 +1,10 @@
 node {
     checkout scm
 
+    String goPath = '/go/src/github.com/jdgiotta/jenkins-test'
+
     stage('Test') {
-        docker.image('golang:latest').inside() {
+        docker.image('golang:latest').inside("-v ${pwd()}:${goPath}") {
             sh 'go test ./...'
         }
     }
