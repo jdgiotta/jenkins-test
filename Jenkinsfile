@@ -1,11 +1,5 @@
 node {
     checkout scm
-    
-    stage ('coverage check') {
-        docker.image('').inside() {
-            sh 'go vet ./...'
-        }
-    }
 
     stage('Test') {
         docker.image('golang:latest').inside() {
