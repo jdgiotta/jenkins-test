@@ -4,7 +4,7 @@ node {
     String goPath = '/go/src/github.com/jdgiotta/jenkins-test'
 
     stage('Test') {
-        docker.image('golang:latest').inside("-v ${pwd()}:${goPath}") {
+        docker.image('golang:latest').inside("-v ${WORKSPACE}:${goPath}") {
             sh "cd ${goPath} && ls -l"
 
         }
