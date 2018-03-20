@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/jdgiotta/jenkins-test/mypkg"
+)
 
 func main() {
-	fmt.Println("Hello")
+	fmt.Println(mypkg.DoSomething())
 }
